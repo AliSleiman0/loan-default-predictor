@@ -51,11 +51,14 @@ text
    git clone https://github.com/your-username/loan-default-predictor.git
    cd loan-default-predictor
 2. **Create and activate virtual environment:**:
-python -m venv venv
-# Windows:
-venv\Scripts\activate
-# Mac/Linux:
-source venv/bin/activate
+   ```bash
+   python -m venv venv
+   Windows: 
+   venv\Scripts\activate
+
+   Mac/Linux:
+   source venv/bin/activate
+   
 3. **Install dependencies:**:
 pip install -r requirements.txt
 3. **Run the application:**:
