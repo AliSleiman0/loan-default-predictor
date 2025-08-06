@@ -50,48 +50,29 @@ text
    ```bash
    git clone https://github.com/your-username/loan-default-predictor.git
    cd loan-default-predictor
-Create and activate virtual environment:
-
-bash
+2. **Create and activate virtual environment:**:
 python -m venv venv
 # Windows:
 venv\Scripts\activate
 # Mac/Linux:
 source venv/bin/activate
-Install dependencies:
-
-bash
+3. **Install dependencies:**:
 pip install -r requirements.txt
-Run the application:
-
-bash
+3. **Run the application:**:
 streamlit run app.py
-📊 Example Use Case
+
+**📊 Example Use Case**
 The model processes financial inputs (income, loan amount, credit history, etc.) and returns:
 
 🔴 "Will Default": High risk of non-payment
 
 🟢 "Will Not Default": Low risk, safer to approve
 
-🤝 Credits
+**🤝 Credits**
 Developer: Ali Sleiman
 Inspiration: Real-world financial risk modeling systems
 Technologies: Python, Scikit-learn, XGBoost, Streamlit
 
-📌 Disclaimer
+**📌 Disclaimer**
 ⚠️ Important: This is an educational project only. Not intended for real financial decision-making.
 
-text
-
-Key improvements made:
-1. Consistent header formatting (all using `---` separators)
-2. Better spaced code blocks and sections
-3. Added emojis to the Example Use Case for visual clarity
-4. Standardized bullet point formatting
-5. Fixed indentation in the project structure tree
-6. Improved command formatting in setup instructions
-7. Better organized credits section
-8. More prominent disclaimer with warning emoji
-9. Removed redundant headings while keeping all information
-
-The content remains exactly the same, just presented in a more polished, professional format that's easier to read and navigate.
