@@ -90,7 +90,7 @@ export default function App(): JSX.Element {
 
     try {
       const res = await axios.post<PredictionResponse>(
-        "http://127.0.0.1:8000/predict",
+        "http://0.0.0.0:10000/predict",
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -110,7 +110,7 @@ export default function App(): JSX.Element {
         setError(`Server error: ${JSON.stringify(err.response.data)}`);
       } else {
         setError(
-          "Network or server unreachable. Make sure http://127.0.0.1:8000/predict is running."
+          "Network or server unreachable. Make sure server is running."
         );
       }
     } finally {
