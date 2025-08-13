@@ -90,7 +90,7 @@ export default function App(): JSX.Element {
 
     try {
       const res = await axios.post<PredictionResponse>(
-        "http://127.0.0.1:10000/predict",
+        "https://loan-default-predictor.up.railway.app/predict",
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
