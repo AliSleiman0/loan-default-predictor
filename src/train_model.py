@@ -7,6 +7,25 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score, classification_report
 from src.preprocess import clean_raw_df
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+
+from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
+
+
 
 def train_and_save(
     raw_csv_path: str = "data/raw/loan_train.csv",
@@ -57,7 +76,24 @@ def train_and_save(
     )
 
     # 8) Train RandomForestClassifier on cleaned, numeric X
-    clf = RandomForestClassifier(n_estimators=n_estimators, random_state=random_state, n_jobs=-1)
+    pipeline = Pipeline(steps=[
+    ("classifier", LogisticRegression(max_iter=1000))
+])
+# Param grid
+    param_grid = {
+       "classifier__C": [0.1, 1, 10],
+       "classifier__penalty": ["l1", "l2"],
+       "classifier__solver": ["liblinear"]  # compatible with l1 penalty
+    }
+
+# Grid search
+    clf = GridSearchCV(
+       pipeline,
+       param_grid,
+       cv=5,
+       scoring="roc_auc",
+       n_jobs=-1
+    )
     clf.fit(X_train, y_train)
 
     # 9) Evaluate: use predicted probabilities for AUC
